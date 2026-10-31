@@ -318,6 +318,18 @@
   gap: 6px;
 }
 
+.textareaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.charCount {
+  font-size: var(--text-2xs);
+  color: var(--muted-dark);
+  font-family: monospace, sans-serif;
+}
+
 .label {
   font-size: var(--text-2xs);
   letter-spacing: 0.14em;
@@ -407,6 +419,89 @@
 .submitBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.submitNote {
+  font-size: var(--text-2xs);
+  color: var(--muted);
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* WhatsApp Live Feedback & Follow-up Actions */
+.whatsappStatusCard {
+  margin-top: var(--space-3);
+  padding: var(--space-4);
+  background-color: #0b1712;
+  border: 1px solid #166534;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: fadeInNotice 250ms ease-out;
+}
+
+@keyframes fadeInNotice {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.whatsappStatusText {
+  font-size: var(--text-xs);
+  color: #86efac;
+  line-height: 1.5;
+}
+
+.whatsappActionsRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding-top: var(--space-2);
+  border-top: 1px solid rgba(22, 101, 52, 0.4);
+}
+
+.tapHereLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4ade80;
+  text-decoration: underline;
+  transition: color 150ms ease;
+}
+
+.tapHereLink:hover {
+  color: #86efac;
+}
+
+.copyMessageBtn {
+  background: #143522;
+  border: 1px solid #22c55e;
+  color: #ffffff;
+  font-size: var(--text-2xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 180ms ease;
+  font-weight: 600;
+}
+
+.copyMessageBtn:hover {
+  background-color: #1b4d2e;
 }
 
 /* Feedback Notice Cards */

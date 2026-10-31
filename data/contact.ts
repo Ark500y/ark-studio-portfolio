@@ -1,6 +1,7 @@
 export interface ContactInfo {
   whatsappDisplay: string;
   whatsappUrl: string;
+  whatsappNumber: string;
   email: string;
   status: string;
   availability: string;
@@ -9,6 +10,7 @@ export interface ContactInfo {
 export const CONTACT: ContactInfo = {
   whatsappDisplay: "03141495630",
   whatsappUrl: "https://wa.me/923141495630",
+  whatsappNumber: "923141495630",
   email: "ark203777@gmail.com",
   status: "Available for New Projects",
   availability: "Remote & Worldwide Collaboration",

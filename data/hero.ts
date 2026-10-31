@@ -39,7 +39,7 @@ export const HERO_DATA: HeroData = {
   availability: "AVAILABLE FOR PROJECTS WORLDWIDE",
   statement: "Turning ideas into powerful digital experiences.",
   stats: [
-    { value: "5", label: "LIVE PROJECTS" },
+    { value: "4", label: "LIVE PROJECTS" },
     { value: "3", label: "COUNTRIES SERVED (PK, SA, UAE)" },
     { value: "EN / AR", label: "BILINGUAL BUILDS" },
   ],

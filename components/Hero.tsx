@@ -28,13 +28,9 @@ export default function Hero() {
   }, []);
 
   const handleImageError = () => {
-    if (imageSrc === '/images/abdulrehman-cutout.png') {
-      // Fallback to original portrait
-      setImageSrc('/images/abdulrehman.png');
-    } else {
-      // If original also fails, mark failed to preserve page layout
-      setImageFailed(true);
-    }
+    // If the transparent cutout fails, fail gracefully without falling back to rectangular photo
+    console.error('Portrait cutout failed to load.');
+    setImageFailed(true);
   };
 
   return (
@@ -100,6 +96,9 @@ export default function Hero() {
             {/* Overlapping Portrait Layer */}
             {!imageFailed && (
               <div className={styles.portraitWrapper}>
+                <div className={styles.mobileHeadlineBackdrop} aria-hidden="true">
+                  <span className={styles.giantPortfolioText}>PORTFOLIO</span>
+                </div>
                 <div className={styles.portraitContainer}>
                   <Image
                     src={imageSrc}
@@ -107,6 +106,7 @@ export default function Hero() {
                     width={764}
                     height={1024}
                     priority
+                    unoptimized
                     className={styles.portraitImage}
                     onError={handleImageError}
                   />
