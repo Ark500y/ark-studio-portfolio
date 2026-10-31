@@ -1,6 +1,7 @@
 export interface HeroStat {
   value: string;
   label: string;
+  sublabel?: string;
 }
 
 export interface NavLink {
@@ -40,7 +41,7 @@ export const HERO_DATA: HeroData = {
   statement: "Turning ideas into powerful digital experiences.",
   stats: [
     { value: "4", label: "LIVE PROJECTS" },
-    { value: "3", label: "COUNTRIES SERVED (PK, SA, UAE)" },
+    { value: "3", label: "COUNTRIES SERVED", sublabel: "PK / SA / UAE" },
     { value: "EN / AR", label: "BILINGUAL BUILDS" },
   ],
   navLinks: [

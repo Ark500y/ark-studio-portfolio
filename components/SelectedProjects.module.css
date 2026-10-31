@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   background-color: var(--bg);
-  padding: var(--space-16) 0 var(--space-20) 0;
+  padding: var(--space-8) 0 var(--space-16) 0;
   border-top: 1px solid var(--line);
   overflow: hidden;
 }

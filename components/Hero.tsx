@@ -135,7 +135,12 @@ export default function Hero() {
                 {HERO_DATA.stats.map((stat, idx) => (
                   <div key={idx} className={styles.statItem}>
                     <span className={styles.statValue}>{stat.value}</span>
-                    <span className={styles.statLabel}>{stat.label}</span>
+                    <div className={styles.statLabelGroup}>
+                      <span className={styles.statLabel}>{stat.label}</span>
+                      {stat.sublabel && (
+                        <span className={styles.statSublabel}>{stat.sublabel}</span>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
