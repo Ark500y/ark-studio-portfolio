@@ -92,7 +92,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },
-      { url: '/images/ark-logo.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
@@ -129,7 +130,16 @@ const jsonLd = {
       '@type': 'ProfessionalService',
       '@id': siteUrl ? `${siteUrl}/#organization` : '#organization',
       name: 'ARK STUDIO',
-      ...(siteUrl ? { url: siteUrl, logo: `${siteUrl}/images/ark-logo.png`, image: `${siteUrl}/images/og-image.png` } : { logo: '/images/ark-logo.png', image: '/images/og-image.png' }),
+      ...(siteUrl
+        ? {
+            url: siteUrl,
+            logo: `${siteUrl}/logo/ark-primary-lockup-512.png`,
+            image: `${siteUrl}/images/og-image.png`,
+          }
+        : {
+            logo: '/logo/ark-primary-lockup-512.png',
+            image: '/images/og-image.png',
+          }),
       description:
         'Website design and development, responsive business sites, Arabic/English bilingual sites, UI/UX, graphic design and branding, landing pages, redesigns, SEO-friendly builds.',
       founder: { '@id': siteUrl ? `${siteUrl}/#person` : '#person' },

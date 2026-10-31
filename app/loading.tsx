@@ -16,10 +16,10 @@ export default function Loading() {
       <div className={styles.centerBox}>
         <div className={styles.glowSphere} aria-hidden="true" />
         <Image
-          src="/images/ark-logo.png"
+          src="/logo/ark-mark-red-white.svg"
           alt="ARK STUDIO"
-          width={38}
-          height={38}
+          width={48}
+          height={34}
           className={styles.logoImage}
           priority
         />

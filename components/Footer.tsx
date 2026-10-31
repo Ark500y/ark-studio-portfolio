@@ -25,10 +25,10 @@ export default function Footer() {
           <div className={styles.brandBox}>
             <Link href="/#hero" className={styles.logoLink} onClick={scrollToTop}>
               <Image
-                src="/images/ark-logo.png"
+                src="/logo/ark-mark-red-white.svg"
                 alt="ARK STUDIO Monogram"
-                width={32}
-                height={32}
+                width={38}
+                height={27}
                 className={styles.logoImage}
               />
               <span className={styles.brandName}>{HERO_DATA.brand}</span>
