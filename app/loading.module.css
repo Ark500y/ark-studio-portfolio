@@ -11,6 +11,26 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  /* Auto-dismiss loading overlay so it never blocks page content for > 1 second */
+  animation: autoDismissLoading 0.25s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  pointer-events: auto;
+}
+
+@keyframes autoDismissLoading {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
+  }
 }
 
 /* Top thin glowing red progress line */
@@ -129,10 +149,20 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .loadingContainer {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    animation: none !important;
+  }
+
+  .topProgressBar,
   .topProgressBar::after,
   .glowSphere,
   .logoImage,
   .dot {
-    animation: none;
+    animation: none !important;
+    display: none !important;
   }
 }

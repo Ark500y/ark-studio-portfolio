@@ -23,8 +23,8 @@ const caveat = Caveat({
   display: 'swap',
 });
 
-// Use NEXT_PUBLIC_SITE_URL if provided by user; otherwise default to localhost for metadataBase
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+// Production canonical domain
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ark-studio-portfolio.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     'Arabic English Web Design',
     'Next.js Portfolio',
     'Responsive Business Websites',
-    'Graphic Design & Branding'
+    'Graphic Design & Branding',
   ],
   authors: [{ name: 'Abdulrehman Khalid', url: CONTACT.whatsappUrl }],
   creator: 'Abdulrehman Khalid',
@@ -54,6 +54,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'ARK STUDIO — Abdulrehman Khalid | Web Designer & Digital Creator',
     description:
@@ -62,7 +65,7 @@ export const metadata: Metadata = {
     siteName: 'ARK STUDIO',
     images: [
       {
-        url: '/images/og-image.png',
+        url: `${siteUrl}/images/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'ARK STUDIO — Abdulrehman Khalid Editorial Portfolio',
@@ -76,7 +79,7 @@ export const metadata: Metadata = {
     title: 'ARK STUDIO — Abdulrehman Khalid | Web Designer & Digital Creator',
     description:
       'Editorial portfolio of Abdulrehman Khalid (ARK STUDIO). Custom website design, responsive business platforms, Arabic/English bilingual systems, and UI/UX.',
-    images: ['/images/og-image.png'],
+    images: [`${siteUrl}/images/og-image.png`],
   },
   robots: {
     index: true,
@@ -99,10 +102,6 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
-  // Canonical URL set ONLY if NEXT_PUBLIC_SITE_URL is provided (no invented domain)
-  ...(process.env.NEXT_PUBLIC_SITE_URL
-    ? { alternates: { canonical: process.env.NEXT_PUBLIC_SITE_URL } }
-    : {}),
 };
 
 export const viewport: Viewport = {
@@ -118,31 +117,25 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Person',
-      '@id': siteUrl ? `${siteUrl}/#person` : '#person',
+      '@id': `${siteUrl}/#person`,
       name: 'Abdulrehman Khalid',
       jobTitle: 'Web Designer & Digital Creator',
       description: HERO_DATA.bio,
-      ...(siteUrl ? { url: siteUrl, image: `${siteUrl}/images/abdulrehman.png` } : { image: '/images/abdulrehman.png' }),
+      url: siteUrl,
+      image: `${siteUrl}/images/abdulrehman.png`,
       sameAs: [CONTACT.whatsappUrl],
       email: CONTACT.email,
     },
     {
       '@type': 'ProfessionalService',
-      '@id': siteUrl ? `${siteUrl}/#organization` : '#organization',
+      '@id': `${siteUrl}/#organization`,
       name: 'ARK STUDIO',
-      ...(siteUrl
-        ? {
-            url: siteUrl,
-            logo: `${siteUrl}/logo/ark-primary-lockup-512.png`,
-            image: `${siteUrl}/images/og-image.png`,
-          }
-        : {
-            logo: '/logo/ark-primary-lockup-512.png',
-            image: '/images/og-image.png',
-          }),
+      url: siteUrl,
+      logo: `${siteUrl}/logo/ark-primary-lockup-512.png`,
+      image: `${siteUrl}/images/og-image.png`,
       description:
         'Website design and development, responsive business sites, Arabic/English bilingual sites, UI/UX, graphic design and branding, landing pages, redesigns, SEO-friendly builds.',
-      founder: { '@id': siteUrl ? `${siteUrl}/#person` : '#person' },
+      founder: { '@id': `${siteUrl}/#person` },
       email: CONTACT.email,
       telephone: CONTACT.whatsappDisplay,
       knowsLanguage: ['en', 'ar'],

@@ -195,7 +195,7 @@ export default function Contact() {
                 </div>
                 <div className={styles.channelAction}>
                   <span className={styles.onlineDot} aria-hidden="true" />
-                  <span>Instant Reply</span>
+                  <span>Chat on WhatsApp</span>
                 </div>
               </a>
 
@@ -405,7 +405,7 @@ export default function Contact() {
                   <span>SEND ON WHATSAPP</span>
                 </button>
                 <p className={styles.submitNote}>
-                  Your message opens in WhatsApp. I usually reply there.
+                  Your message opens directly in WhatsApp.
                 </p>
               </div>
 

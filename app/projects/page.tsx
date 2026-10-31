@@ -6,10 +6,39 @@ import Footer from '@/components/Footer';
 import { PROJECTS, PROJECTS_HEADER } from '@/data/projects';
 import styles from './page.module.css';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ark-studio-portfolio.vercel.app';
+
 export const metadata: Metadata = {
   title: 'Selected Projects & Case Studies — ARK STUDIO | Abdulrehman Khalid',
   description:
     'Complete archive of digital experiences, business websites, bilingual English/Arabic platforms, and UI/UX design engineered by Abdulrehman Khalid at ARK STUDIO.',
+  alternates: {
+    canonical: '/projects',
+  },
+  openGraph: {
+    title: 'Selected Projects & Case Studies — ARK STUDIO | Abdulrehman Khalid',
+    description:
+      'Complete archive of digital experiences, business websites, bilingual English/Arabic platforms, and UI/UX design engineered by Abdulrehman Khalid at ARK STUDIO.',
+    url: `${siteUrl}/projects`,
+    siteName: 'ARK STUDIO',
+    images: [
+      {
+        url: `${siteUrl}/images/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'ARK STUDIO Selected Projects',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Selected Projects & Case Studies — ARK STUDIO | Abdulrehman Khalid',
+    description:
+      'Complete archive of digital experiences, business websites, bilingual English/Arabic platforms, and UI/UX design engineered by Abdulrehman Khalid at ARK STUDIO.',
+    images: [`${siteUrl}/images/og-image.png`],
+  },
 };
 
 export default function ProjectsPage() {

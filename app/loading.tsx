@@ -1,7 +1,24 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './loading.module.css';
 
 export default function Loading() {
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    // Failsafe: Ensure loading screen never hides page content for > 1 second
+    const timer = setTimeout(() => {
+      setDismissed(true);
+    }, 950);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (dismissed) {
+    return null;
+  }
+
   return (
     <div
       className={styles.loadingContainer}

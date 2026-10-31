@@ -134,9 +134,7 @@ export default function Hero() {
               <div className={styles.statsStack}>
                 {HERO_DATA.stats.map((stat, idx) => (
                   <div key={idx} className={styles.statItem}>
-                    <span className={styles.statValue}>
-                      {stat.value.includes('AR') ? stat.value : `${stat.value}+`}
-                    </span>
+                    <span className={styles.statValue}>{stat.value}</span>
                     <span className={styles.statLabel}>{stat.label}</span>
                   </div>
                 ))}
