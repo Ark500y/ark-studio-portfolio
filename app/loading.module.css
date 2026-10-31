@@ -1,0 +1,138 @@
+/* ==========================================================================
+   MINIMAL ON-BRAND LOADING STATE
+   ========================================================================== */
+
+.loadingContainer {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg, #050505);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Top thin glowing red progress line */
+.topProgressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(229, 9, 32, 0.12);
+  overflow: hidden;
+}
+
+.topProgressBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, #E50920 50%, #ff4d5a 100%);
+  animation: slideProgress 1.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px #E50920;
+}
+
+@keyframes slideProgress {
+  0% {
+    left: -50%;
+    width: 30%;
+  }
+  50% {
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 40%;
+  }
+}
+
+/* Center Emblem Box */
+.centerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4, 16px);
+  position: relative;
+}
+
+.glowSphere {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(229, 9, 32, 0.22) 0%, transparent 70%);
+  filter: blur(28px);
+  pointer-events: none;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.logoImage {
+  position: relative;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  animation: pulseEmblem 2s infinite ease-in-out;
+}
+
+@keyframes pulseEmblem {
+  0%, 100% {
+    transform: scale(0.96);
+    filter: drop-shadow(0 0 8px rgba(229, 9, 32, 0.3));
+  }
+  50% {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 16px rgba(229, 9, 32, 0.65));
+  }
+}
+
+.loadingLabel {
+  position: relative;
+  z-index: 2;
+  font-size: var(--text-2xs, 0.6875rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted, #A0A0A0);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--red, #E50920);
+  animation: blinkDot 1s infinite alternate;
+}
+
+@keyframes blinkDot {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topProgressBar::after,
+  .glowSphere,
+  .logoImage,
+  .dot {
+    animation: none;
+  }
+}

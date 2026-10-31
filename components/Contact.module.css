@@ -1,0 +1,476 @@
+/* ==========================================================================
+   CONTACT SECTION — DRAMATIC EDITORIAL TWO-COLUMN LAYOUT
+   ========================================================================== */
+
+.contactSection {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg);
+  padding: var(--space-20) 0 var(--space-24) 0;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* Subtle Ambient Glow */
+.ambientGlow {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(229, 9, 32, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Two-Column Grid */
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  column-gap: var(--space-12);
+  row-gap: var(--space-10);
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: HEADLINE, COPY & DIRECT CHANNELS
+   ========================================================================== */
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionLabel {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.sectionLabel::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background-color: var(--red);
+}
+
+.contactHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  letter-spacing: 0.02em;
+  line-height: 0.92;
+  color: var(--text-pure);
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+}
+
+.contactSubcopy {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 500px;
+  margin-bottom: var(--space-8);
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 14px 28px;
+  background-color: var(--red);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--red);
+  width: fit-content;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  margin-bottom: var(--space-10);
+  text-decoration: none;
+}
+
+.ctaBtn:hover {
+  background-color: #f51229;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(229, 9, 32, 0.5);
+}
+
+.ctaArrow {
+  transition: transform 200ms ease;
+}
+
+.ctaBtn:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* Direct Channels Stack */
+.channelsStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-6);
+  max-width: 480px;
+}
+
+.channelCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+}
+
+.channelCard:hover {
+  border-color: rgba(229, 9, 32, 0.45);
+  background-color: var(--surface-hover);
+  transform: translateX(4px);
+}
+
+.channelInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.channelIconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: #121216;
+  border: 1px solid var(--line-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.channelMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.channelLabel {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.channelValue {
+  font-family: monospace, sans-serif;
+  font-size: var(--text-sm);
+  color: var(--text-pure);
+  font-weight: 600;
+}
+
+.channelAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.channelLinkWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+}
+
+.copyEmailBtn {
+  background: #0d0d10;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 180ms ease;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.copyEmailBtn:hover {
+  border-color: var(--text-pure);
+  color: var(--text-pure);
+  background-color: #17171c;
+}
+
+.copyEmailBtnSuccess {
+  border-color: #22c55e;
+  color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.sendEmailLink {
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 180ms ease;
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sendEmailLink:hover {
+  color: var(--red);
+}
+
+.honeypot {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.onlineDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: PROJECT INQUIRY FORM
+   ========================================================================== */
+
+.formCard {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-8);
+  box-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.8);
+}
+
+.formHeader {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--text-pure);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.formSubtitle {
+  font-size: var(--text-xs);
+  color: var(--muted);
+}
+
+.inquiryForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.optionalTag {
+  color: var(--muted-dark);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 4px;
+}
+
+.textInput,
+.selectInput,
+.textareaInput {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: #070709;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text-pure);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  outline: none;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.textInput:focus,
+.selectInput:focus,
+.textareaInput:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px var(--red);
+}
+
+.textareaInput {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.selectInput {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A0A0A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px;
+  padding-right: 36px;
+}
+
+.errorText {
+  font-size: var(--text-2xs);
+  color: var(--red);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: 14px;
+  background-color: var(--red);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--red);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease, opacity 200ms ease;
+  margin-top: var(--space-2);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: #f51229;
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Feedback Notice Cards */
+.statusNotice {
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  margin-top: var(--space-2);
+}
+
+.noticeFallback {
+  background-color: #170d06;
+  border: 1px solid #78350f;
+  color: #fde68a;
+}
+
+.noticeSuccess {
+  background-color: #06170d;
+  border: 1px solid #14532d;
+  color: #86efac;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: var(--space-8);
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .contactSection {
+    padding: var(--space-12) 0 var(--space-16) 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .formCard {
+    padding: var(--space-5);
+  }
+
+  .channelCard {
+    padding: var(--space-3);
+  }
+}
+
+@media (max-width: 360px) {
+  .formCard {
+    padding: var(--space-3);
+  }
+
+  .ctaBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contactHeading {
+    font-size: 2.2rem;
+  }
+}
