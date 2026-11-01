@@ -45,10 +45,10 @@ export const HERO_DATA: HeroData = {
     { value: "EN / AR", label: "BILINGUAL BUILDS" },
   ],
   navLinks: [
-    { label: "Home", href: "/#hero" },
+    { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
-    { label: "About", href: "/#about" },
-    { label: "Contact", href: "/#contact" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ],
 };
 

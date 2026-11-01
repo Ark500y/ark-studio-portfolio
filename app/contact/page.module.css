@@ -1,0 +1,479 @@
+/* ==========================================================================
+   CONTACT PAGE STYLES — DARK EDITORIAL DIRECT INQUIRY & CHANNELS
+   ========================================================================== */
+
+.contactPage {
+  min-height: 100vh;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page Hero Header */
+.heroHeader {
+  padding: var(--space-16) 0 var(--space-12) 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(229, 9, 32, 0.16) 0%, rgba(120, 11, 22, 0.08) 45%, transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: var(--space-6);
+  text-decoration: none;
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.backLink:hover {
+  color: var(--red);
+  transform: translateX(-4px);
+}
+
+.pageLabel {
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.pageLabel::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background-color: var(--red);
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.5vw, 6rem);
+  letter-spacing: 0.02em;
+  color: var(--text-pure);
+  line-height: 0.88;
+  text-transform: uppercase;
+  margin-bottom: var(--space-5);
+}
+
+.pageSubtitle {
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  color: var(--muted);
+  max-width: 740px;
+  line-height: 1.6;
+}
+
+/* Two-Column Interactive Grid */
+.inquirySection {
+  padding: var(--space-16) 0 var(--space-20) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.inquiryGrid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+/* Left Column: Direct Channels */
+.channelsCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.channelCard {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: relative;
+  transition: border-color 200ms ease;
+}
+
+.channelCard:hover {
+  border-color: rgba(229, 9, 32, 0.45);
+}
+
+.channelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.channelLabel {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.statusIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--red);
+  box-shadow: 0 0 8px var(--red);
+}
+
+.channelValue {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--text-pure);
+}
+
+.channelActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.channelActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--red);
+  color: #ffffff;
+  padding: 8px 18px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background-color 180ms ease;
+}
+
+.channelActionBtn:hover {
+  background-color: #f01d34;
+}
+
+.channelSecondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 7px 16px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.channelSecondaryBtn:hover {
+  border-color: var(--red);
+  color: var(--text-pure);
+}
+
+.locationCard {
+  background-color: rgba(11, 11, 13, 0.5);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.locationTitle {
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-pure);
+  font-weight: 700;
+}
+
+.locationDesc {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Right Column: Inquiry Form Card */
+.formCard {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: clamp(24px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--space-4);
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.02em;
+  color: var(--text-pure);
+  text-transform: uppercase;
+}
+
+.formSubtitle {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.formRow2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.fieldLabel {
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.fieldOptional {
+  font-size: 0.6875rem;
+  color: var(--muted-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: 4px;
+}
+
+.textInput,
+.selectInput,
+.textareaInput {
+  width: 100%;
+  background-color: #0c0c0e;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  color: var(--text-pure);
+  font-size: var(--text-sm);
+  font-family: inherit;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.textInput:focus,
+.selectInput:focus,
+.textareaInput:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px rgba(229, 9, 32, 0.2);
+}
+
+.textareaInput {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.fieldError {
+  font-size: 0.6875rem;
+  color: var(--red);
+  letter-spacing: 0.04em;
+}
+
+.honeypot {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.submitBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--red);
+  color: #ffffff;
+  padding: 16px 24px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.submitBtn:hover {
+  background-color: #f01d34;
+  transform: translateY(-2px);
+}
+
+.submitNote {
+  font-size: var(--text-2xs);
+  color: var(--muted-dark);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+/* Success / Modal Fallback */
+.fallbackNotice {
+  background-color: rgba(229, 9, 32, 0.1);
+  border: 1px solid rgba(229, 9, 32, 0.3);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.fallbackNotice p {
+  font-size: var(--text-xs);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.copyMsgBtn {
+  align-self: flex-start;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text-pure);
+  padding: 6px 14px;
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+/* FAQ Section */
+.faqSection {
+  padding: var(--space-16) 0 var(--space-24) 0;
+}
+
+.faqHeader {
+  margin-bottom: var(--space-12);
+}
+
+.sectionSmallLabel {
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.sectionMainHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  color: var(--text-pure);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.faqCard {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: border-color 200ms ease;
+}
+
+.faqCard:hover {
+  border-color: rgba(229, 9, 32, 0.35);
+}
+
+.faqQuestion {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--text-pure);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.faqAnswer {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Responsive Queries */
+@media (max-width: 900px) {
+  .inquiryGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .formRow2 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './AboutProcess.module.css';
 import { ABOUT_DATA, SKILLS } from '@/data/skills';
 import { WORK_PROCESS_HEADER, WORK_PROCESS_STEPS, QUOTE_PANEL } from '@/data/process';
@@ -75,6 +76,26 @@ export default function AboutProcess() {
                   {skill}
                 </span>
               ))}
+            </div>
+
+            <div className={styles.moreAboutWrap}>
+              <Link href="/about" className={styles.aboutPageLink}>
+                <span>READ FULL STORY &amp; SERVICES</span>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </Link>
             </div>
           </div>
 

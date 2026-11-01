@@ -3,12 +3,19 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
 import { HERO_DATA } from '@/data/hero';
 import { CONTACT } from '@/data/contact';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
+  };
 
   // Close menu on ESC key press
   useEffect(() => {
@@ -41,7 +48,7 @@ export default function Header() {
       <div className={`container ${styles.inner}`}>
         {/* Left: Brand Monogram + Full Title */}
         <div className={styles.brandGroup}>
-          <Link href="/#hero" className={styles.logoLink} onClick={closeMenu}>
+          <Link href="/" className={styles.logoLink} onClick={closeMenu}>
             <Image
               src="/logo/ark-mark-red-white.svg"
               alt="ARK STUDIO Monogram"
@@ -59,11 +66,19 @@ export default function Header() {
         {/* Right: Availability Status + Desktop Nav + Mobile Toggle */}
         <div className={styles.rightGroup}>
           <nav className={styles.desktopNav} aria-label="Main Navigation">
-            {HERO_DATA.navLinks.map((link) => (
-              <a key={link.href} href={link.href} className={styles.navLink}>
-                {link.label}
-              </a>
-            ))}
+            {HERO_DATA.navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`${styles.navLink} ${active ? styles.activeNavLink : ''}`}
+                  aria-current={active ? 'page' : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <a
@@ -99,18 +114,22 @@ export default function Header() {
       >
         <nav aria-label="Mobile Navigation">
           <ul className={styles.mobileNavList}>
-            {HERO_DATA.navLinks.map((link, idx) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className={styles.mobileNavLink}
-                  onClick={closeMenu}
-                >
-                  <span className={styles.mobileNavIndex}>0{idx + 1}</span>
-                  <span>{link.label}</span>
-                </a>
-              </li>
-            ))}
+            {HERO_DATA.navLinks.map((link, idx) => {
+              const active = isActive(link.href);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`${styles.mobileNavLink} ${active ? styles.activeMobileNavLink : ''}`}
+                    onClick={closeMenu}
+                    aria-current={active ? 'page' : undefined}
+                  >
+                    <span className={styles.mobileNavIndex}>0{idx + 1}</span>
+                    <span>{link.label}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

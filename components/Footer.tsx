@@ -23,7 +23,7 @@ export default function Footer() {
         <div className={styles.mainRow}>
           {/* Brand & Role */}
           <div className={styles.brandBox}>
-            <Link href="/#hero" className={styles.logoLink} onClick={scrollToTop}>
+            <Link href="/" className={styles.logoLink} onClick={scrollToTop}>
               <Image
                 src="/logo/ark-mark-red-white.svg"
                 alt="ARK STUDIO Monogram"
@@ -40,9 +40,9 @@ export default function Footer() {
           {/* Navigation Links */}
           <nav className={styles.navLinks} aria-label="Footer Navigation">
             {HERO_DATA.navLinks.map((link) => (
-              <a key={link.href} href={link.href} className={styles.footerLink}>
+              <Link key={link.href} href={link.href} className={styles.footerLink}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

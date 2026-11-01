@@ -125,6 +125,30 @@
   background-color: var(--surface-hover);
 }
 
+.moreAboutWrap {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--line);
+}
+
+.aboutPageLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 200ms ease, color 200ms ease;
+}
+
+.aboutPageLink:hover {
+  color: #f01d34;
+  transform: translateX(4px);
+}
+
 /* ==========================================================================
    PART 2: WORK PROCESS (CENTER COLUMN)
    ========================================================================== */

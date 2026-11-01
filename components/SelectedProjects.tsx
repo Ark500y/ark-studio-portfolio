@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './SelectedProjects.module.css';
 import { PROJECTS, PROJECTS_HEADER } from '@/data/projects';
 
@@ -51,7 +52,7 @@ export default function SelectedProjects() {
             <h2 className={styles.sectionTitle}>{PROJECTS_HEADER.title}</h2>
           </div>
 
-          <a href={PROJECTS_HEADER.viewAllHref} className={styles.viewAllLink}>
+          <Link href={PROJECTS_HEADER.viewAllHref} className={styles.viewAllLink}>
             <span>{PROJECTS_HEADER.viewAllText}</span>
             <svg
               className={styles.arrowIcon}
@@ -68,7 +69,7 @@ export default function SelectedProjects() {
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* 3-Column Responsive Projects Grid */}

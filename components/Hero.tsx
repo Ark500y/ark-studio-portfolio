@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Hero.module.css';
 import { HERO_DATA } from '@/data/hero';
 
@@ -84,12 +85,12 @@ export default function Hero() {
 
               {/* Two Hero Action Buttons */}
               <div className={styles.heroButtons}>
-                <a href="#projects" className={styles.btnPrimary}>
+                <Link href="/projects" className={styles.btnPrimary}>
                   VIEW MY WORK →
-                </a>
-                <a href="#contact" className={styles.btnSecondary}>
+                </Link>
+                <Link href="/contact" className={styles.btnSecondary}>
                   LET&apos;S TALK
-                </a>
+                </Link>
               </div>
             </div>
 
