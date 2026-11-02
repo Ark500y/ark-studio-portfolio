@@ -1,0 +1,260 @@
+/* ==========================================================================
+   LOGO REVEAL INTRO OVERLAY — EDITORIAL CINEMATIC STARTUP
+   ========================================================================== */
+
+.revealOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  overflow: hidden;
+  pointer-events: auto;
+  user-select: none;
+  /* CSS Failsafe: Automatically dismisses at 1.15s even if JS is slow */
+  animation: autoDismissOverlay 1.15s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Exit transition triggered by JS */
+.revealExit {
+  animation: curtainWipeUp 0.35s cubic-bezier(0.77, 0, 0.175, 1) forwards !important;
+}
+
+@keyframes curtainWipeUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0.95;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes autoDismissOverlay {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  75% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  98% {
+    transform: translateY(-100%);
+    opacity: 0.95;
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
+  }
+}
+
+/* Ambient Radial Crimson Glow */
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(280px, 45vw, 600px);
+  height: clamp(280px, 45vw, 600px);
+  background: radial-gradient(
+    circle at center,
+    rgba(229, 9, 32, 0.28) 0%,
+    rgba(120, 11, 22, 0.14) 40%,
+    rgba(5, 5, 5, 0) 70%
+  );
+  filter: blur(50px);
+  pointer-events: none;
+  animation: glowPulse 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Top Red Progress Line */
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #780B16, #E50920, #ff3b4e);
+  box-shadow: 0 0 12px rgba(229, 9, 32, 0.8);
+  animation: loadProgress 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes loadProgress {
+  0% {
+    width: 0%;
+  }
+  60% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Center Stage */
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4, 16px);
+  z-index: 10;
+  padding: 0 var(--space-6, 24px);
+}
+
+/* Monogram Mark Wrapper */
+.markWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: markEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.markImage {
+  width: clamp(64px, 10vw, 92px);
+  height: auto;
+  filter: drop-shadow(0 0 24px rgba(229, 9, 32, 0.5));
+}
+
+@keyframes markEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.9);
+    filter: drop-shadow(0 0 0 rgba(229, 9, 32, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 32px rgba(229, 9, 32, 0.8));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 24px rgba(229, 9, 32, 0.5));
+  }
+}
+
+/* Wordmark "ARK STUDIO" */
+.wordmarkWrapper {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.wordmark {
+  font-family: var(--font-anton), var(--font-display), sans-serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: #F5F5F5;
+  text-transform: uppercase;
+  animation: wordmarkReveal 0.7s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes wordmarkReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    letter-spacing: 0.05em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.14em;
+  }
+}
+
+/* Center Hairline Accent Divider */
+.accentDivider {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #E50920 50%, transparent 100%);
+  animation: expandLine 0.6s 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: clamp(140px, 30vw, 240px);
+    opacity: 1;
+  }
+}
+
+/* Tagline */
+.taglineWrapper {
+  overflow: hidden;
+}
+
+.tagline {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(0.625rem, 1.2vw, 0.75rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #A0A0A0;
+  font-weight: 500;
+  display: block;
+  animation: taglineReveal 0.6s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes taglineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+/* Prefers-Reduced-Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .revealOverlay {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    animation: none !important;
+  }
+
+  .ambientGlow,
+  .progressBar,
+  .markWrapper,
+  .wordmark,
+  .accentDivider,
+  .tagline {
+    animation: none !important;
+    display: none !important;
+  }
+}

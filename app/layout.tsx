@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Anton, Inter, Caveat } from 'next/font/google';
 import './globals.css';
+import LogoReveal from '@/components/LogoReveal';
 import { CONTACT } from '@/data/contact';
 import { HERO_DATA } from '@/data/hero';
 
@@ -160,6 +161,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <LogoReveal />
         {children}
       </body>
     </html>
